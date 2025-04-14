@@ -115,7 +115,7 @@ else:
  
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)   
 
-s = ssl.wrap_socket(sock, ssl_version=ssl.PROTOCOL_TLS)
+s = ssl.SSLContext(ssl.PROTOCOL_TLS).wrap_socket(sock)
 
 s.connect(("8.8.8.8", 443))
 #print(s.getsockname()[0])
@@ -124,7 +124,7 @@ s.connect(("8.8.8.8", 443))
 port = 443
 
 # Wrap the socket in an SSL/TLS context
-s = ssl.wrap_socket(sock, ssl_version=ssl.PROTOCOL_TLS)
+s = ssl.SSLContext(ssl.PROTOCOL_TLS).wrap_socket(sock)
 
 # Connect to the server
 s.connect((url_Entered, port))

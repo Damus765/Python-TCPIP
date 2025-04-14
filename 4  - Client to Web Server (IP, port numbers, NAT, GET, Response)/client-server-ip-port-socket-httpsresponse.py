@@ -128,7 +128,7 @@ else:
 
 
 # Wrap the socket in an SSL/TLS context
-tls_sock = ssl.wrap_socket(sock, ssl_version=ssl.PROTOCOL_TLS)
+tls_sock = ssl.SSLContext(ssl.PROTOCOL_TLS).wrap_socket(sock)
 
 # Connect to the server
 tls_sock.connect((url_Entered, port))
